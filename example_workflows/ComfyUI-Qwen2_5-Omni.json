@@ -1,0 +1,323 @@
+{
+  "id": "f3bd5d9b-e1ff-434d-aa6d-6b3f6983a2bc",
+  "revision": 0,
+  "last_node_id": 23,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "QWEN2_5_OMNI_Run",
+      "pos": [
+        700,
+        330
+      ],
+      "size": [
+        400,
+        312
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "QWEN2_5_OMNI_model",
+          "type": "QWEN2_5_OMNI_MODEL",
+          "link": 10
+        },
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "name": "video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 20
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 22
+        },
+        {
+          "name": "BatchImage",
+          "shape": 7,
+          "type": "BatchImage",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            12
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "MakkiShizu/ComfyUI-Qwen2_5-Omni",
+        "ver": "62087f01f73ea16a406ab8d91e98cf6f19625e10",
+        "Node name for S&R": "QWEN2_5_OMNI_Run"
+      },
+      "widgets_values": [
+        "描述这些文件。视频中人物衣服如何变化？语音内容是什么？",
+        "torchvision",
+        false,
+        false,
+        "Chelsie",
+        38636446174402,
+        "randomize"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "DownloadAndLoadQWEN2_5_OMNIModel",
+      "pos": [
+        700,
+        130
+      ],
+      "size": [
+        367.5953063964844,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "QWEN2_5_OMNI_model",
+          "type": "QWEN2_5_OMNI_MODEL",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "MakkiShizu/ComfyUI-Qwen2_5-Omni",
+        "ver": "62087f01f73ea16a406ab8d91e98cf6f19625e10",
+        "Node name for S&R": "DownloadAndLoadQWEN2_5_OMNIModel"
+      },
+      "widgets_values": [
+        "Qwen/Qwen2.5-Omni-3B",
+        "4bit",
+        "sdpa",
+        false
+      ]
+    },
+    {
+      "id": 13,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1200,
+        330
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "嗯，从第一张图到第二张图，这个人物的衣服从黑色的露肩上衣变成了裸露的上身，没有衣服了。语音内容是“以后画师的门会随时为你打开”。如果还有其他问题，欢迎随时告诉我哦。"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "LoadVideo",
+      "pos": [
+        400,
+        330
+      ],
+      "size": [
+        270,
+        447.2353210449219
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "FramePack_00001.mp4",
+        "image"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "LoadImage",
+      "pos": [
+        100,
+        330
+      ],
+      "size": [
+        270,
+        314.0000305175781
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "1002 (1).webp",
+        "image"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "LoadAudio",
+      "pos": [
+        400,
+        130
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "嗯，我的刻印，以后，画室的门会随时为你打开。.wav",
+        null,
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      10,
+      11,
+      0,
+      10,
+      0,
+      "QWEN2_5_OMNI_MODEL"
+    ],
+    [
+      12,
+      10,
+      0,
+      13,
+      0,
+      "STRING"
+    ],
+    [
+      20,
+      21,
+      0,
+      10,
+      2,
+      "VIDEO"
+    ],
+    [
+      21,
+      22,
+      0,
+      10,
+      1,
+      "IMAGE"
+    ],
+    [
+      22,
+      23,
+      0,
+      10,
+      3,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.928309212304736,
+      "offset": [
+        199.6669080726149,
+        26.205891927083258
+      ]
+    },
+    "frontendVersion": "1.21.0",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
