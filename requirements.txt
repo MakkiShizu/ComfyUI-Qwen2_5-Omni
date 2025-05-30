@@ -1,0 +1,4 @@
+qwen-omni-utils
+qwen-omni-utils[decord]
+accelerate
+transformers>=4.52.3
