@@ -1,0 +1,15 @@
+[project]
+name = "qwen2_5-omni"
+description = "Qwen2.5-Omni in ComfyUI"
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["qwen-omni-utils", "qwen-omni-utils[decord]", "transformers>=4.52.3"]
+
+[project.urls]
+Repository = "https://github.com/MakkiShizu/ComfyUI-Qwen2_5-Omni"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "makki-shizu"
+DisplayName = "ComfyUI-Qwen2_5-Omni"
+Icon = "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2.5-Omni/Omni_logo.png"
